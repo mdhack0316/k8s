@@ -42,7 +42,7 @@ curl -L https://download.opensuse.org/repositories/devel:kubic:libcontainers:sta
 apt update
 
 
-apt install cri-o cri-o-runc cri-tools -y
+apt install cri-o cri-o-runc cri-tools -y  && systemctl enable --now crio 
 
 systemctl start crio.service
 
