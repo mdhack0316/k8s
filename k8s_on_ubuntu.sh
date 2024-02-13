@@ -1,10 +1,11 @@
 #!/bin/bash
 
-modprobe overlay
+#modprobe mean it will load a kernel module in linux 
+modprobe overlay       
 modprobe br_netfilter
 
 
-
+#enable the module that you have loaded 
 cat <<X >/etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
@@ -12,8 +13,9 @@ net.ipv4.ip_forward = 1
 X
 
 
-
+# updating runtime sysctl file 
 sysctl --system
+
 
 apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
 
